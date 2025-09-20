@@ -1,12 +1,23 @@
-# React + Vite
+# Chomp Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ed61f1f6-29bd-460e-a6f4-f4dc6c1ebdc2/deploy-status)](https://app.netlify.com/projects/chomp-chocolate/deploys)
 
-Currently, two official plugins are available:
+## How to play
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Pencil and Paper Games- Chomp Game](http://www.papg.com/show?3AEA)
 
-## Expanding the ESLint configuration
+**_The players take turns in chomping squares out of a bar of chocolate. The player who eats the last square loses._**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**The game is played on a rectangular grid representing a bar of chocolate - a good size is 5 x 4. The top left square is marked in some way to represent a poison pill:**
+
+![Chomp Grid](/public/images/Chomp1.png "Chomp Grid")
+![Chomp First Round](/public/images/Chomp2.png "Chomp First Round")
+![Chomp Second Round](/public/images/Chomp3.png "Chomp Second Round")
+
+**The players take turns to mark an empty square, and then shade any unshaded squares below and to the right of it to represent taking a bite of the chocolate:**
+
+![Chomp Chocolate Bar](/public/images/Chomp_game.png "Chomp Chocolate Bar")
+
+**The top left-hand square is poisoned, and the player forced to eat this loses.**
+
+![Chomp Game](/public/images/Chomp_gameplay.png "Chomp Game")
