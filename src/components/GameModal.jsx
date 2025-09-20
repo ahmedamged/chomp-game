@@ -32,7 +32,7 @@ export const GameModal = ({
               id="player1"
               onChange={(e) => setFirstPlayer(e.target.value)}
             />
-            <label htmlFor="player2">Second Player Name- &#40;O&#41;</label>
+            <label htmlFor="player2">Second Player Name - &#40;O&#41;</label>
             <input
               type="text"
               id="player2"
