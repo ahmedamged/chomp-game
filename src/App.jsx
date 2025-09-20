@@ -53,8 +53,10 @@ function App() {
     if (rowIndex === 0 && cellIndex === 0) {
       if (isPlayerX) {
         setLoser("X");
+        setOScore((prevOScore) => prevOScore + 1);
       } else {
         setLoser("O");
+        setXScore((prevXScore) => prevXScore + 1);
       }
     }
     if (isPlayerX) {
@@ -147,7 +149,9 @@ function App() {
             Loser is {loser}
           </p>
         ) : (
-          <p className="text-2xl mb-4 mt-20">Avoid eating the top left bite</p>
+          <p className="text-2xl mb-4 mt-20">
+            Avoid eating the top left corner
+          </p>
         )}
         <p className="text-lg absolute top-[10px] left-[50%] translate-x-[-50%]">
           {firstPlayer}
