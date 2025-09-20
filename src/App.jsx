@@ -53,10 +53,14 @@ function App() {
     if (rowIndex === 0 && cellIndex === 0) {
       if (isPlayerX) {
         setLoser("X");
-        setOScore((prevOScore) => prevOScore + 1);
+        if (loser === null) {
+          setOScore((prevOScore) => prevOScore + 1);
+        }
       } else {
         setLoser("O");
-        setXScore((prevXScore) => prevXScore + 1);
+        if (loser === null) {
+          setXScore((prevXScore) => prevXScore + 1);
+        }
       }
     }
     if (isPlayerX) {
