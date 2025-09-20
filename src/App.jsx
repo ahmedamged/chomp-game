@@ -14,6 +14,10 @@ function App() {
   ]);
   const [isPlayerX, setIsPlayerX] = useState(true);
   const [loser, setLoser] = useState(null);
+  const [xScore, setXScore] = useState(0);
+  const [oScore, setOScore] = useState(0);
+  const [firstPlayer, setFirstPlayer] = useState("");
+  const [secondPlayer, setSecondPlayer] = useState("");
 
   const createDynamicMatrix = (rows, cols, initialValue = 0) => {
     const matrix = [];
@@ -34,12 +38,15 @@ function App() {
       totalCells = 30;
     } else if (barSize === "six-by-seven") {
       totalCells = 42;
-    } else if (barSize === "seven-by-eight") {
-      totalCells = 56;
     }
 
     if (xOCount === totalCells - 1) {
       setLoser(loser);
+      if (loser === "X") {
+        setOScore((prevOScore) => prevOScore + 1);
+      } else if (loser === "O") {
+        setXScore((prevXScore) => prevXScore + 1);
+      }
     }
   };
   const handleCellClick = (rowIndex, cellIndex) => {
@@ -102,9 +109,6 @@ function App() {
     } else if (barSize === "six-by-seven") {
       chocolateBarMatrix = createDynamicMatrix(6, 7, null);
       setChocolateBar(chocolateBarMatrix);
-    } else if (barSize === "seven-by-eight") {
-      chocolateBarMatrix = createDynamicMatrix(7, 8, null);
-      setChocolateBar(chocolateBarMatrix);
     }
     setIsPlayerX(true);
     setLoser(null);
@@ -122,9 +126,6 @@ function App() {
     } else if (barSize === "six-by-seven") {
       chocolateBarMatrix = createDynamicMatrix(6, 7, null);
       setChocolateBar(chocolateBarMatrix);
-    } else if (barSize === "seven-by-eight") {
-      chocolateBarMatrix = createDynamicMatrix(7, 8, null);
-      setChocolateBar(chocolateBarMatrix);
     }
   }, [barSize]);
   return (
@@ -135,17 +136,26 @@ function App() {
             setIsShown={setModalIsShown}
             barSize={barSize}
             setBarSize={setBarSize}
+            setFirstPlayer={setFirstPlayer}
+            setSecondPlayer={setSecondPlayer}
           />
         ) : null}
       </div>
-      <div className="text-emerald-50 mb-4">
+      <div className="text-emerald-50">
         {loser ? (
-          <p className="text-2xl animate-bounce duration-200">
+          <p className="text-2xl animate-bounce duration-200 mb-4 mt-20">
             Loser is {loser}
           </p>
         ) : (
-          <p className="text-2xl">Keep Playing</p>
+          <p className="text-2xl mb-4 mt-20">Avoid eating the top left bite</p>
         )}
+        <p className="text-lg absolute top-[10px] left-[50%] translate-x-[-50%]">
+          {firstPlayer}
+          <span className="text-purple-300"> &#40;X&#41;</span> is {xScore}
+          <hr />
+          {secondPlayer}
+          <span className="text-cyan-400"> &#40;O&#41;</span> is {oScore}
+        </p>
       </div>
       <div className="w-full px-0 sm:px-32">
         {chocolateBar.map((row, rowIndex) => (
