@@ -7,14 +7,15 @@ export const GameModal = ({
   setFirstPlayer,
   setSecondPlayer,
 }) => {
-  const handleStartBtn = () => {
+  const handleStartBtn = (e) => {
+    e.preventDefault();
     setIsShown((prev) => !prev);
   };
   return (
     <div className="modal-layout">
       <div className="modal">
         <h1 className="modal-title">Size of Chocolate Bar</h1>
-        <form onSubmit={handleStartBtn}>
+        <form onSubmit={(e) => handleStartBtn(e)}>
           <select
             value={barSize}
             onChange={(e) => setBarSize(e.target.value)}

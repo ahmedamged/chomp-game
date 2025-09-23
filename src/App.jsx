@@ -157,13 +157,17 @@ function App() {
             Avoid eating the top left corner
           </p>
         )}
-        <p className="text-lg absolute top-[10px] left-[50%] translate-x-[-50%]">
-          {firstPlayer}
-          <span className="text-purple-300"> &#40;X&#41;</span> is {xScore}
+        <div className="text-lg absolute top-[10px] left-[50%] translate-x-[-50%]">
+          <p>
+            {firstPlayer}
+            <span className="text-purple-300"> &#40;X&#41;</span> is {xScore}
+          </p>
           <hr />
-          {secondPlayer}
-          <span className="text-cyan-400"> &#40;O&#41;</span> is {oScore}
-        </p>
+          <p>
+            {secondPlayer}
+            <span className="text-cyan-400"> &#40;O&#41;</span> is {oScore}
+          </p>
+        </div>
       </div>
       <div className="w-full px-0 sm:px-32">
         {chocolateBar.map((row, rowIndex) => (
